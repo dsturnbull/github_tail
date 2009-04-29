@@ -38,7 +38,9 @@ private
   end
 
   def show
-    new_items.each do |item|
+    items = new_items
+    print "--\n" if items.any?
+    items.each do |item|
       item[:title] =~ /(.*?) (.*) (.*?)$/
       person = $1
       stuff = $2
@@ -46,7 +48,6 @@ private
       print "#{yellow(person)} #{stuff} #{green(repo)}\n"
       print "  #{item[:link]}\n"
     end
-    print "--\n"
   end
 
   def new_items
