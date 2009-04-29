@@ -1,4 +1,6 @@
 #!/usr/bin/ruby
+require 'pathname'
+$: << File.dirname(Pathname.new($0).realpath)
 require 'github_tail'
 
 GithubTail.poll.every minute
