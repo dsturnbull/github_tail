@@ -5,7 +5,7 @@ require 'open-uri'
 begin
   require 'simple-rss'
 rescue LoadError
-  print "sudo gem install simple-rss\n"
+  puts "sudo gem install simple-rss"
   exit 1
 end
 
@@ -39,14 +39,14 @@ private
 
   def show
     items = new_items
-    print "--\n" if items.any?
+    puts '--' if items.any?
     items.each do |item|
       item[:title] =~ /(.*?) (.*) (.*?)$/
       person = $1
       stuff = $2
       repo = $3
-      print "#{yellow(person)} #{stuff} #{green(repo)}\n"
-      print "  #{item[:link]}\n"
+      puts "#{yellow(person)} #{stuff} #{green(repo)}"
+      puts "  #{item[:link]}"
     end
   end
 
