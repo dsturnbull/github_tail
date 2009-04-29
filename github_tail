@@ -1,0 +1,5 @@
+#!/usr/bin/ruby
+require 'github_tail'
+
+GithubTail.poll.every minute
+#GithubTail.poll.every 15.seconds
